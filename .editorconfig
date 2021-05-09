@@ -1,0 +1,19 @@
+# Для всех файлов используем unix-совместимые переносы строк
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+# отступы в 4 пробела
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Используем табы для отступов (Не указываем размер)
+[*.js]
+indent_style = tab
+
+# Html
+[*.html]
+indent_style = space
+indent_size = 2

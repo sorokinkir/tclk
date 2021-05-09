@@ -1,0 +1,40 @@
+version: "3.7"
+
+services: 
+    tclk:
+        image: tclk:latest
+        depends_on: 
+            - "db_tclk"
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 80
+            - 443
+        networks: 
+            tclk-dev:
+                ipv4_address: 172.18.23.2
+
+    db_tclk:
+        image: postgres:latest
+        ports: 
+            - "5432"
+        volumes: 
+            - ../tclk_volumes/db_volume:/var/lib/postgresql/data
+        environment: 
+            POSTGRES_USER: "tclkuser"
+            POSTGRES_PASSWORD: "tclkpass"
+            POSTGRES_DB: "tclk"
+        networks: 
+            tclk-dev:
+                ipv4_address: 172.18.23.3
+
+volumes: 
+    db_volume:
+        driver: local
+
+networks: 
+    tclk-dev:
+        ipam: 
+            config:
+            - subnet: 172.18.23.0/24
