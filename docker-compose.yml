@@ -1,19 +1,19 @@
 version: "3.7"
 
 services: 
-    tclk:
-        image: tclk:latest
-        depends_on: 
-            - "db_tclk"
-        build:
-            context: .
-            dockerfile: Dockerfile
-        ports:
-            - 80
-            - 443
-        networks: 
-            tclk-dev:
-                ipv4_address: 172.18.23.2
+    # tclk:
+    #     image: tclk:latest
+    #     depends_on: 
+    #         - "db_tclk"
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile
+    #     ports:
+    #         - 80
+    #         - 443
+    #     networks: 
+    #         tclk-dev:
+    #             ipv4_address: 172.18.23.2
 
     db_tclk:
         image: postgres:latest
